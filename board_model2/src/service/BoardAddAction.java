@@ -25,24 +25,17 @@ public class BoardAddAction implements Action{
 		board.setBoard_pass(multi.getParameter("board_pass"));
 		board.setBoard_subject(multi.getParameter("board_subject"));
 		board.setBoard_content(multi.getParameter("board_content"));
-		
-		String file=multi.getParameter("board_file");
-		if(!file.equals("")) {
-			board.setBoard_file(file);
-		}
-		
+		board.setBoard_file(multi.getParameter("board_file"));
+	
 		BoardDAO dao=BoardDAO.getInstance();
 		int result=dao.insert(board);
-		
-		request.setAttribute("board", board);
+		System.out.println("result:"+result);
 		
 		ActionForward forward=new ActionForward();
-		forward.setRedirect(false);
-		forward.setPath("./board_list.jsp");
+		forward.setRedirect(true);
+		forward.setPath("./BoardListAction.do");
 		
-		
-		
-		return null;
+		return forward;
 	}
 	
 
