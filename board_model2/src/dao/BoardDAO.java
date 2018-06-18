@@ -143,9 +143,16 @@ public class BoardDAO {
 		PreparedStatement pstmt=null;
 		ResultSet rs=null;
 		
+		
 		try {
 			conn=getConnection();
-			String sql="select * from model2 where board_num=?";
+			
+			String sql="update model2 set board_readcount=board_readcount+1 where board_num=?";
+			pstmt=conn.prepareStatement(sql);
+			pstmt.setInt(1, num);
+			pstmt.executeUpdate();
+	
+			sql="select * from model2 where board_num=?";
 			pstmt=conn.prepareStatement(sql);
 			pstmt.setInt(1, num);
 			rs=pstmt.executeQuery();

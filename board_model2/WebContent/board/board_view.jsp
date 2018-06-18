@@ -30,6 +30,13 @@
 		<td align=center>파일</td>
 		<td colspan=3><a href="./board/file_down.jsp?file_name=${board.board_file }">${board.board_file }</a></td>
 	</tr>
+	<tr><td colspan=4 align=center>
+			<input type="button" location.href="./reply.do" value="댓글">
+			<input type="button" location.href="" value="수정">
+			<input type="button" location.href="" value="삭제">
+			<input type="button" location.href="" value="목록">
+		</td>
+	</tr>
 </table>
 </body>
 </html>
