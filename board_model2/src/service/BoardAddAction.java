@@ -25,7 +25,8 @@ public class BoardAddAction implements Action{
 		board.setBoard_pass(multi.getParameter("board_pass"));
 		board.setBoard_subject(multi.getParameter("board_subject"));
 		board.setBoard_content(multi.getParameter("board_content"));
-		board.setBoard_file(multi.getParameter("board_file"));
+		board.setBoard_file(multi.getFilesystemName("board_file"));
+		System.out.println("board:"+board.getBoard_file());
 	
 		BoardDAO dao=BoardDAO.getInstance();
 		int result=dao.insert(board);

@@ -28,7 +28,7 @@
 	</tr>
 	<tr>
 		<td align=center>ÆÄÀÏ</td>
-		<td colspan=3>${board.board_file }</td>
+		<td colspan=3><a href="./board/file_down.jsp?file_name=${board.board_file }">${board.board_file }</a></td>
 	</tr>
 </table>
 </body>
