@@ -220,7 +220,7 @@ public class BoardDAO {
 		}
 		return board;
 	}
-	
+	//´ñ±Û ´Þ±â
 	public int reply(BoardBean board) {
 		int result=0;
 		Connection conn=null;
