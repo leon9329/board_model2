@@ -1,40 +1,40 @@
-<%@ page language="java" contentType="text/html; charset=EUC-KR"
-    pageEncoding="EUC-KR"%>
+<%@ page language="java" contentType="text/html; charset=utf-8"
+    pageEncoding="utf-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="fmt"  uri="http://java.sun.com/jsp/jstl/fmt"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=EUC-KR">
-<title>»ó¼¼ ÆäÀÌÁö</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>ìƒì„¸ í˜ì´ì§€</title>
 </head>
 <body>
 <table border=1 align=center width=500>
-	<tr><td align=center width=50>ÀÌ¸§</td>
+	<tr><td align=center width=50>ì´ë¦„</td>
 		<td width=50>${board.board_name }</td>
-		<td align=center width=50>Á¶È¸¼ö</td>
+		<td align=center width=50>ì¡°íšŒìˆ˜</td>
 		<td>${board.board_readcount }</td>
 	</tr>
-	<tr><td align=center>Á¦¸ñ</td>
+	<tr><td align=center>ì œëª©</td>
 		<td>${board.board_subject }</td>
-		<td align=center>½Ã°£</td>
+		<td align=center>ì‹œê°„</td>
 		<td>
 		<fmt:formatDate value="${board.board_date }" type="both" timeStyle="long"/>
 		</td>
 	</tr>
 	<tr>
-		<td align=center>³»¿ë</td>
+		<td align=center>ë‚´ìš©</td>
 		<td colspan=3 height=100 >${board.board_content }</td>
 	</tr>
 	<tr>
-		<td align=center>ÆÄÀÏ</td>
+		<td align=center>íŒŒì¼</td>
 		<td colspan=3><a href="./board/file_down.jsp?file_name=${board.board_file }">${board.board_file }</a></td>
 	</tr>
 	<tr><td colspan=4 align=center>
-			<input type="button" location.href="./reply.do" value="´ñ±Û">
-			<input type="button" location.href="" value="¼öÁ¤">
-			<input type="button" location.href="" value="»èÁ¦">
-			<input type="button" location.href="" value="¸ñ·Ï">
+			<input type="button" onClick="location.href='./BoardReplyAction.do?page=${page}&num=${board.board_num }'" value="ëŒ“ê¸€">
+			<input type="button" onClick="location.href=''" value="ìˆ˜ì •">
+			<input type="button" onClick="location.href=''" value="ì‚­ì œ">
+			<input type="button" onClick="location.href='./BoardListAction.do?page=${page}'" value="ëª©ë¡">
 		</td>
 	</tr>
 </table>

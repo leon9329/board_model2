@@ -14,6 +14,8 @@ import service.ActionForward;
 import service.BoardAddAction;
 import service.BoardDetailAction;
 import service.BoardListAction;
+import service.BoardReplyAction;
+import service.BoardReplyView;
 
 /**
  * Servlet implementation class BoardFrontController
@@ -67,6 +69,24 @@ public class BoardFrontController extends HttpServlet {
 		else if(command.equals("/BoardDetailAction.do")) {
 			try {
 				action=new BoardDetailAction();
+				forward=action.execute(request, response);
+			} catch (Exception e) {
+				// TODO: handle exception
+				e.getStackTrace();
+			}
+			//댓글 폼에 갖고갈 정보 구해오기(부모정보)
+		}else if(command.equals("/BoardReplyAction.do")) {
+			try {
+				action=new BoardReplyAction();
+				forward=action.execute(request, response);
+			} catch (Exception e) {
+				// TODO: handle exception
+				e.getStackTrace();
+			}
+			//댓글 달기
+		}else if(command.equals("/BoardReplyView.do")) {
+			try {
+				action=new BoardReplyView();
 				forward=action.execute(request, response);
 			} catch (Exception e) {
 				// TODO: handle exception
