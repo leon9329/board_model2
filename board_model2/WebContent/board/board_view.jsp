@@ -32,7 +32,7 @@
 	</tr>
 	<tr><td colspan=4 align=center>
 			<input type="button" onClick="location.href='./BoardReplyAction.do?page=${page}&num=${board.board_num }'" value="댓글">
-			<input type="button" onClick="location.href=''" value="수정">
+			<input type="button" onClick="location.href='./BoardModifyAction.do?page=${page}&num=${board.board_num }'" value="수정">
 			<input type="button" onClick="location.href=''" value="삭제">
 			<input type="button" onClick="location.href='./BoardListAction.do?page=${page}'" value="목록">
 		</td>

@@ -14,6 +14,8 @@ import service.ActionForward;
 import service.BoardAddAction;
 import service.BoardDetailAction;
 import service.BoardListAction;
+import service.BoardModifyAction;
+import service.BoardModifyView;
 import service.BoardReplyAction;
 import service.BoardReplyView;
 
@@ -54,6 +56,7 @@ public class BoardFrontController extends HttpServlet {
 			try {
 				action = new BoardListAction();
 				forward = action.execute(request, response);
+				System.out.println("forward path="+forward.getPath());
 
 			} catch (Exception e) {
 				// TODO: handle exception
@@ -70,6 +73,7 @@ public class BoardFrontController extends HttpServlet {
 			try {
 				action=new BoardDetailAction();
 				forward=action.execute(request, response);
+				System.out.println("forward path="+forward.getPath());
 			} catch (Exception e) {
 				// TODO: handle exception
 				e.getStackTrace();
@@ -92,13 +96,33 @@ public class BoardFrontController extends HttpServlet {
 				// TODO: handle exception
 				e.getStackTrace();
 			}
+			//¼öÁ¤ Æû
+		}else if(command.equals("/BoardModifyAction.do")) {
+			try {
+				action=new BoardModifyAction();
+				forward=action.execute(request, response);
+			} catch (Exception e) {
+				// TODO: handle exception
+				e.getStackTrace();
+			}
+			//¼öÁ¤
+		}else if(command.equals("/BoardModifyView.do")) {
+			try {
+				action=new BoardModifyView();
+				forward=action.execute(request, response);
+			} catch (Exception e) {
+				// TODO: handle exception
+				e.getStackTrace();
+			}
 		}
 		
 
 		if (forward != null) {
 			if (forward.isRedirect()) {
+				System.out.println("redirect:"+forward.getPath());
 				response.sendRedirect(forward.getPath());
 			} else {
+				System.out.println("redirect:"+forward.getPath());
 				RequestDispatcher dispatcher=request.getRequestDispatcher(forward.getPath());
 				dispatcher.forward(request, response);
 			}
