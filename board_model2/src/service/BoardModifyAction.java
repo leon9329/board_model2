@@ -10,11 +10,11 @@ public class BoardModifyAction implements Action {
 	@Override
 	public ActionForward execute(HttpServletRequest request, HttpServletResponse response) throws Exception {
 		// TODO Auto-generated method stub
-		System.out.println("BoardModifyAction");
+		System.out.println("BoardListAction");
 		
 		int num=Integer.parseInt(request.getParameter("num"));
 		String page=request.getParameter("page");
-		
+		System.out.println("BoardListAction¾È page: "+page);
 		BoardDAO dao=BoardDAO.getInstance();
 		BoardBean board= dao.getContent(num);
 		

@@ -43,6 +43,7 @@
 			
 			<a href="./BoardDetailAction.do?num=${b.board_num}&page=${page}">
 				${b.board_subject}
+				
 			</a>
 		
 		</td><!-- 내부적으로 getSubject를 불러와 출력 -->

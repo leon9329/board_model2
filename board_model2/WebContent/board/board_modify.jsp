@@ -8,12 +8,11 @@
 	
 </head>
 <body>
-
 <form action="<%=request.getContextPath() %>/BoardModifyView.do" method="post" 
 <%-- <form action="/model2/BoardAddAction.do" method="post"  --%>
 	enctype="multipart/form-data">
-	<input type="hidden" name=page value=${page }>
-	<input type="hidden" name=num value=${board.board_num }>
+	<input type="text" name=page value=${page }>
+	<input type="text" name=num value=${board.board_num }>
 	
 <table cellpadding="0" cellspacing="0" align=center border=1>
 	<tr align="center" valign="middle">

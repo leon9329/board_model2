@@ -9,6 +9,7 @@
 <title>상세 페이지</title>
 </head>
 <body>
+<input type=text value=${page }>
 <table border=1 align=center width=500>
 	<tr><td align=center width=50>이름</td>
 		<td width=50>${board.board_name }</td>
@@ -33,7 +34,7 @@
 	<tr><td colspan=4 align=center>
 			<input type="button" onClick="location.href='./BoardReplyAction.do?page=${page}&num=${board.board_num }'" value="댓글">
 			<input type="button" onClick="location.href='./BoardModifyAction.do?page=${page}&num=${board.board_num }'" value="수정">
-			<input type="button" onClick="location.href=''" value="삭제">
+			<input type="button" onClick="location.href='./BoardDeleteAction.do?page=${page}&num=${board.board_num }'" value="삭제">
 			<input type="button" onClick="location.href='./BoardListAction.do?page=${page}'" value="목록">
 		</td>
 	</tr>

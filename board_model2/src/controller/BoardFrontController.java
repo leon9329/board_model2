@@ -12,6 +12,7 @@ import javax.servlet.http.HttpServletResponse;
 import service.Action;
 import service.ActionForward;
 import service.BoardAddAction;
+import service.BoardDelete;
 import service.BoardDetailAction;
 import service.BoardListAction;
 import service.BoardModifyAction;
@@ -114,6 +115,21 @@ public class BoardFrontController extends HttpServlet {
 				// TODO: handle exception
 				e.getStackTrace();
 			}
+			//삭제 폼으로
+		}else if(command.equals("/BoardDeleteAction.do")) {
+			forward=new ActionForward();
+			forward.setRedirect(false);
+			forward.setPath("/board/board_delete.jsp");
+			//삭제
+		}else if(command.equals("/BoardDelete.do")) {
+			try {
+				action=new BoardDelete();
+				forward=action.execute(request, response);
+			} catch (Exception e) {
+				// TODO: handle exception
+				e.getStackTrace();
+			}
+			
 		}
 		
 

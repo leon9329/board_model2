@@ -292,4 +292,26 @@ public class BoardDAO {
 		
 		return result;
 	}
+	//ªË¡¶
+	public int delete(int num) {
+		int result=0;
+		Connection conn=null;
+		PreparedStatement pstmt=null;
+		
+		try {
+			conn=getConnection();
+			String sql="delete from model2 where board_num=?";
+			pstmt=conn.prepareStatement(sql);
+			pstmt.setInt(1, num);
+			result = pstmt.executeUpdate();
+			
+		} catch (Exception e) {
+			// TODO: handle exception
+			e.getStackTrace();
+		}finally {
+			if(pstmt!=null)try {pstmt.close();}catch(Exception e) {}
+			if(conn!=null)try {conn.close();}catch(Exception e) {}
+		}
+		return result;
+	}
 }

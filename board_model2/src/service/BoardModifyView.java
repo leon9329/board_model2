@@ -65,12 +65,16 @@ public class BoardModifyView implements Action{
 			}
 		}
 		
-		request.setAttribute("num", num);
-		request.setAttribute("page", page);
+//		request.setAttribute("page", page);
+//		request.setAttribute("num", num);
+		
+		
+		System.out.println("넘길 num:"+num);
+		System.out.println("넘길page:"+page);
 		
 		ActionForward forward = new ActionForward();
 		forward.setRedirect(false);
-		forward.setPath("/BoardDetailAction.do");
+		forward.setPath("/BoardDetailAction.do?page="+page+"&num="+num);
 		return forward;
 	}
 
