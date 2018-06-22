@@ -263,4 +263,33 @@ public class BoardDAO {
 		
 		return result;
 	}
+	
+	//정보 수정
+	public int setUpdate(BoardBean board) {
+		int result=0;
+		
+		Connection conn=null;
+		PreparedStatement pstmt=null;
+		
+		try {
+			conn=getConnection();
+			String sql="update model2 set board_name=?,board_subject=?,board_content=?,board_file=? where board_num=?";
+			pstmt=conn.prepareStatement(sql);
+			pstmt.setString(1, board.getBoard_name());
+			pstmt.setString(2, board.getBoard_subject());
+			pstmt.setString(3, board.getBoard_content());
+			pstmt.setString(4, board.getBoard_file());
+			pstmt.setInt(5, board.getBoard_num());
+			result=pstmt.executeUpdate();
+			
+		} catch (Exception e) {
+			// TODO: handle exception
+			e.getStackTrace();
+		}finally {
+			if(pstmt!=null)try {pstmt.close();}catch(Exception e) {}
+			if(conn!=null)try {conn.close();}catch(Exception e) {}
+		}
+		
+		return result;
+	}
 }

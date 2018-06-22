@@ -26,7 +26,7 @@ public class BoardModifyView implements Action{
 		MultipartRequest multi = 
 				new MultipartRequest(request,path,size,"utf-8",new DefaultFileRenamePolicy());
 		
-		int num=Integer.parseInt(multi.getParameter("nun"));
+		int num=Integer.parseInt(multi.getParameter("num"));
 		String page=multi.getParameter("page");
 		String board_pass=multi.getParameter("board_pass");
 		
@@ -57,10 +57,21 @@ public class BoardModifyView implements Action{
 			return null;
 			
 		}else {
-			//dao.setUpdate(board);
+			int result=dao.setUpdate(board);
+			if(result == 1) {
+				System.out.println("수정완료");
+			}else {
+				System.out.println("수정 실패");
+			}
 		}
 		
-		return null;
+		request.setAttribute("num", num);
+		request.setAttribute("page", page);
+		
+		ActionForward forward = new ActionForward();
+		forward.setRedirect(false);
+		forward.setPath("/BoardDetailAction.do");
+		return forward;
 	}
 
 }
